@@ -1,13 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { Outlet, RouterProvider, createBrowserRouter } from 'react-router-dom'
-import { ErrorPage } from './components/ErrorPage'
+import { RedirectToWelcome1 } from './components/RedirectToWelcome1'
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Outlet />,
-    errorElement: <ErrorPage />,
+    errorElement: <RedirectToWelcome1 />,
     children: [
       { index: true, element: <div>空</div> },
       {
