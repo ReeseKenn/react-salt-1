@@ -21,16 +21,16 @@ export const WelcomeLayout: React.FC = () => {
         <img src={logo} w-54px h-54px/>
         <h2 text-primary>海盐账本</h2>
       </header>
-      <div grow-1>
+      <div grow-1 flex flex-col justify-center>
         {transitions((style, pathname) =>
         <animated.div key={pathname} style={style}>
-          <div style={{ textAlign: 'center' }}>
+          <div>
             {map.current[pathname]}
           </div>
         </animated.div>
         )}
       </div>
-      <footer h-100px>
+      <footer h-30vh w="100%" p-16px text-center>
         {/* TODO: 重构此处重复代码 */}
         <Link to='/welcome/1' style={{ background: location.pathname === '/welcome/1' ? '#3c6382' : '' }}
           bg-primary w-30px h-4px inline-block m-1/>
@@ -40,6 +40,13 @@ export const WelcomeLayout: React.FC = () => {
           bg-primary w-30px h-4px inline-block m-1/>
         <Link to='/welcome/4' style={{ background: location.pathname === '/welcome/4' ? '#3c6382' : '' }}
           bg-primary w-30px h-4px inline-block m-1/>
+        {/* 如果当前路由是/welcome/4,展示button */}
+        {location.pathname === '/welcome/4'
+          && <Link to="/start">
+            <div mt-16px>
+              <button s-btn w='100%'>开启应用</button>
+            </div>
+          </Link>}
       </footer>
   </div>
   )

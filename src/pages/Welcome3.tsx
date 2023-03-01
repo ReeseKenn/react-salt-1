@@ -1,12 +1,10 @@
-import { NavLink } from 'react-router-dom'
+import pic from '../assets/icons/w3.svg'
 
 export const Welcome3: React.FC = () => {
   return (
     <div>
-      <header hover:b-1 hover:b-red b-primary b-3 text-primary flex>
-         海盐账本
-      </header>
-      <NavLink to="/welcome/4">下一页</NavLink>
-      </div>
+      <img src={pic}/>
+      <h3 text-primary>可视化设计，收支一目了然</h3>
+    </div>
   )
 }
