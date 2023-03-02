@@ -21,15 +21,15 @@ export const WelcomeLayout: React.FC = () => {
         <img src={logo} w-54px h-54px/>
         <h2 text-primary>海盐账本</h2>
       </header>
-      <div grow-1 flex flex-col justify-center>
+      <main grow-1 relative w="100%">
         {transitions((style, pathname) =>
-        <animated.div key={pathname} style={style}>
-          <div>
+        <animated.div key={pathname} style={style} absolute w="100%" h="100%">
+          <div grow-1 flex flex-col justify-center items-center >
             {map.current[pathname]}
           </div>
         </animated.div>
         )}
-      </div>
+      </main>
       <footer h-30vh w="100%" p-16px text-center>
         {/* TODO: 重构此处重复代码 */}
         <Link to='/welcome/1' style={{ background: location.pathname === '/welcome/1' ? '#3c6382' : '' }}
