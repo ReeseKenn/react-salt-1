@@ -11,5 +11,7 @@ declare module 'react' {
     absolute?: boolean
     w?: string
     h?: string
+    rounded?: string
+    fixed?: boolean
   }
 }
