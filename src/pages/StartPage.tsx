@@ -2,16 +2,17 @@ import axios from 'axios'
 import useSWR from 'swr'
 import pic from '../assets/icons/w1.svg'
 import add from '../assets/icons/add.svg'
+import { ajax } from '../lib/ajax'
 
 const fetcher = (path: string) => {
-  return axios.get(path)
+  return ajax.get(path)
 }
 export const StratPage: React.FC = () => {
   const { data: meData, error: meError } = useSWR('/api/v1/userInfo', (path) => {
-    return axios.get(path)
+    return ajax.get(path)
   })
   const { data: itemsData, error: itemsError } = useSWR(meData ? '/api/v1/items' : null, (path) => {
-    return axios.get(path)
+    return ajax.get(path)
   })
   console.log(meData, meError, itemsData, itemsError)
   return <div>
