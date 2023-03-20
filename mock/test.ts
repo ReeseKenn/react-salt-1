@@ -4,6 +4,7 @@ export default [
   {
     url: '/api/v1/userInfo',
     method: 'get',
+    timeout: 10000,
     response: () => {
       return {
         id: 1,
