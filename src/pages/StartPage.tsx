@@ -24,7 +24,7 @@ export const StratPage: React.FC = () => {
     <img mt-16vh mb-16vh width="128" height="128" src={pic} />
   </div>
   <div px-16px>
-    <button s-btn w='100%'>开始记账</button>
+    <button s-btn>开始记账</button>
   </div>
   <AddItemFloatButton/>
 </div>

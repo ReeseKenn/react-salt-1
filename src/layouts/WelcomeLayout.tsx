@@ -65,7 +65,7 @@ export const WelcomeLayout: React.FC = () => {
         {location.pathname === '/welcome/4'
           && <Link to="/start">
             <div mt-16px>
-              <button s-btn w='100%'>开启应用</button>
+              <button s-btn>开启应用</button>
             </div>
           </Link>}
       </footer>

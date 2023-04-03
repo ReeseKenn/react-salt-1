@@ -14,5 +14,6 @@ declare module 'react' {
     rounded?: string
     fixed?: boolean
     bg?: string
+    b?: string
   }
 }

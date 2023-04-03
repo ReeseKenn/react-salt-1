@@ -13,6 +13,27 @@ const Div = styled.div`
 
 export const ItemsPage: React.FC = () => {
   const [timeRage, setTimeRange] = useState<TimeRange>('thisMonth')
+  const [items] = useState<Item[]>([
+    {
+      id: 1,
+      kind: 'expenses',
+      amount: 2800,
+      user_id: 1,
+      tag_ids: [3],
+      happened_at: '2021-01-01T00:00:00.000Z',
+      created_at: '2021-01-01T00:00:00.000Z',
+      updated_at: '2021-01-01T00:00:00.000Z'
+    }, {
+      id: 2,
+      kind: 'incomes',
+      amount: 1000,
+      user_id: 1,
+      tag_ids: [1],
+      happened_at: '2021-01-01T00:00:00.000Z',
+      created_at: '2021-01-01T00:00:00.000Z',
+      updated_at: '2021-01-01T00:00:00.000Z'
+    }
+  ])
   return (
     <div>
       <Div>
@@ -20,7 +41,7 @@ export const ItemsPage: React.FC = () => {
         <TimeRangePicker selected={timeRage} onSelected={setTimeRange}/>
       </Div>
       <ItemsSummary/>
-      <ItemsList/>
+      <ItemsList items={items}/>
       <AddItemFloatButton />
     </div>
   )

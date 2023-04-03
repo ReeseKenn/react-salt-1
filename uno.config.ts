@@ -10,7 +10,7 @@ export default defineConfig({
     }
   },
   shortcuts: {
-    's-btn': 'bg-primary text-white h-48px b-rd-8px text-18px b-1px b-primary p-x-16px p-y-8px'
+    's-btn': 'bg-primary text-white h-48px b-rd-8px text-18px b-1px b-primary p-x-16px p-y-8px w-100%'
   },
   safelist: [],
   presets: [
