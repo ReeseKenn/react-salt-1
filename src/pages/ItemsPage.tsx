@@ -3,7 +3,9 @@ import styled from 'styled-components'
 import { AddItemFloatButton } from '../components/AddItemFloatButton'
 import { TimeRangePicker } from '../components/TimeRangePicker'
 import type { TimeRange } from '../components/TimeRangePicker'
-import { Topnav } from '../components/Topnav'
+import { TopNav } from '../components/TopNav'
+import { menuContext } from '../contexts/menuContext'
+import { TopMenu } from '../components/TopMenu'
 import { ItemsList } from './ItemsPage/ItemsList'
 import { ItemsSummary } from './ItemsPage/ItemsSummary'
 
@@ -34,15 +36,19 @@ export const ItemsPage: React.FC = () => {
       updated_at: '2021-01-01T00:00:00.000Z'
     }
   ])
+  const [visible, setVisible] = useState(false)
   return (
     <div>
-      <Div>
-        <Topnav />
-        <TimeRangePicker selected={timeRage} onSelected={setTimeRange}/>
-      </Div>
-      <ItemsSummary/>
-      <ItemsList items={items}/>
-      <AddItemFloatButton />
+      <menuContext.Provider value={{ setVisible }}>
+        <Div>
+          <TopNav />
+          <TimeRangePicker selected={timeRage} onSelected={setTimeRange}/>
+        </Div>
+        <ItemsSummary/>
+        <ItemsList items={items}/>
+        <AddItemFloatButton />
+        {visible ? <TopMenu/> : null}
+      </menuContext.Provider>
     </div>
   )
 }
