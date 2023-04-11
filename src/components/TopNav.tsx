@@ -4,7 +4,7 @@ import { Icon } from './Icon'
 interface Props {
   title?: string
 }
-export const TopNav: React.FC<Props> = ({ title = ' ' }) => {
+export const TopNav: React.FC<Props> = ({ title = '海盐账本' }) => {
   const { visible, setVisible } = useMenuStore()
   return (
     <div text-white flex items-center pt-24px pb-8px px-24px>
