@@ -19,18 +19,44 @@ export const WelcomeLayout: React.FC = () => {
     '/welcome/3': '/welcome/4',
     '/welcome/4': '/start'
   }
+  const linkMap2: Record<string, string> = {
+    '/welcome/2': '/welcome/1',
+    '/welcome/3': '/welcome/2',
+    '/welcome/4': '/welcome/3',
+  }
   const nav = useNavigate()
   useEffect(() => {
+    console.log(direction)
     if (transition.current === true) { return }
     if (direction === 'left') {
       transition.current = true
       nav(linkMap[location.pathname])
     }
+    else if (direction === 'right') {
+      transition.current = true
+      nav(linkMap2[location.pathname])
+    }
   }, [direction])
   const transitions = useTransition(location.pathname, {
-    from: { transform: location.pathname === '/welcome/1' ? 'translateX(0%)' : 'translateX(100%)' },
+    from: () => {
+      const style = {
+        transform: location.pathname === '/welcome/1' ? 'translateX(0%)' : 'translateX(100%)'
+      }
+      if (direction === 'right') {
+        style.transform = 'translateX(-100%)'
+      }
+      return style
+    },
     enter: { transform: 'translateX(0%)' },
-    leave: { transform: 'translateX(-100%)' },
+    leave: () => {
+      const style = {
+        transform: 'translateX(-100%)'
+      }
+      if (direction === 'right') {
+        style.transform = 'translateX(100%)'
+      }
+      return style
+    },
     onRest: () => {
       transition.current = false
     },
